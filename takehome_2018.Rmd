@@ -1,0 +1,71 @@
+---
+title: |
+    | STAT 532: Final Exam
+    | Due: December 5 at 8:00 AM
+    | Name:
+output: html_document 
+---
+
+```{r setup, include=FALSE,eval = F}
+library(knitr)
+library(dplyr)
+library(readr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Please turn in the exam to D2L and include the R Markdown code *and either* a Word or PDF file with output. While the exam is open book, meaning you are free to use any resources from class, this is strictly an individual endeavor and **you should not discuss the problems with anyone outside the course instructor including class members.** The instructor will answer questions related to the data, expectations, and understanding of the exam, but will not fix or troubleshoot broken code.
+
+This question will focus on the analysis of wine ratings using a sample of ratings recorded by wine magazine in the Western region of the United States. The dataset is available at [http://www.math.montana.edu/ahoegh/teaching/stat532/data/wine_ratings.csv](http://www.math.montana.edu/ahoegh/teaching/stat532/data/wine_ratings.csv). Each row corresponds to a single review. Wines are reviewed on the following 100-point scale:
+
+- 95-100 Classic: a great wine
+- 90-94 Outstanding: a wine of superior character and style
+- 85-89 Very good: a wine with special qualities
+- 80-84 Good: a solid, well-made wine
+- 75-79 Mediocre: a drinkable wine that may have minor flaws
+- 50-74 Not recommended
+
+However this data set only contains reviews with a minimum score of 80.
+
+
+### 1. Data Viz (5 points)
+
+Create a set of exploratory visualizations to explore the data with the intent of modeling the wine points (the rating).
+
+### 2. Normal Sampling Model (25 points)
+
+#### a. Sampling Model (5 points)
+Use the normal distribution and write out a model for points that uses price, province, and variety. Clearly define all parameters in the model.
+
+#### b. Prior Distribution (5 points)
+Specify the parameters in the model in part 2a that require a prior distribution and justify your prior choices for this model.
+
+#### c. Posterior Samples (8 points)
+Using your approach of choice, draw posterior samples from the model in 2a. Include a visual summary of the parameters in the model.
+
+#### d. Posterior Predictive Check (7 points)
+Describe the purpose of a posterior predictive check. Then conduct one using your model and priors from parts 2b and 2c. What are the implications of this posterior predictive check?
+
+### 3. Hierarchical Normal Sampling Model (17 points)
+
+#### a. Sampling Model (5 points)
+Write a hierarchical model using the winery as a grouping variable. Include a description of your prior values here.
+
+#### b. Model Comparison (5 points)
+Describe the difference between the model in part 3a and 2a. I'm not asking you to compare the results, but just philosophical differences between the models.
+
+#### c. Model Summary (7 points)
+Fit the model described in 3a and summarize the results.
+
+
+### 4. Advanced Model (8 points)
+
+#### a. Sampling Model (4 points)
+
+Given that the data is bounded between 100 and 80, propose a sampling model that accounts for the constraints on the respose. Please include entire model as in question 2a along with appropriate prior distributions.
+
+#### b. Posterior Sampling (4 points)
+You do not need to implement this, but detail how you would take samples from the posterior distribution for the model in 4a.
+
+### 5. Summary (5 points)
+
+Describe the differences between Bayesian and classical inference. Do you currently consider yourself a Bayesian or classical statistician (no wrong answers here)?

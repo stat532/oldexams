@@ -1,0 +1,121 @@
+% Exam Template for UMTYMP and Math Department courses
+%
+% Using Philip Hirschhorn's exam.cls: http://www-math.mit.edu/~psh/#ExamCls
+%
+% run pdflatex on a finished exam at least three times to do the grading table on front page.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% These lines can probably stay unchanged, although you can remove the last
+% two packages if you're not making pictures with tikz.
+\documentclass[11pt]{exam}
+\RequirePackage{amssymb, amsfonts, amsmath, latexsym, verbatim, xspace, setspace,url}
+\RequirePackage{tikz, pgflibraryplotmarks}
+
+% By default LaTeX uses large margins.  This doesn't work well on exams; problems
+% end up in the "middle" of the page, reducing the amount of space for students
+% to work on them.
+\usepackage[margin=1in]{geometry}
+
+
+% Here's where you edit the Class, Exam, Date, etc.
+\newcommand{\class}{Stat 532}
+\newcommand{\examnum}{Take home final}
+\newcommand{\examdate}{Due 12/04/17 at 9:00 AM}
+
+% For an exam, single spacing is most appropriate
+\singlespacing
+% \onehalfspacing
+% \doublespacing
+
+% For an exam, we generally want to turn off paragraph indentation
+\parindent 0ex
+
+\begin{document} 
+
+% These commands set up the running header on the top of the exam pages
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{\class}{\examnum\ - Page \thepage\ of \numpages}{\examdate}
+\runningheadrule
+
+\begin{flushright}
+\begin{tabular}{p{3.5in} r l}
+\textbf{\class} &\hfill \textbf{Name:} & \makebox[2in]{\hrulefill}\\
+%\textbf{\term} &&\\
+\textbf{\examnum} &&\\
+\textbf{\examdate} &&\\
+\end{tabular}\\
+\end{flushright}
+\rule[1ex]{\textwidth}{.1pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% See http://www-math.mit.edu/~psh/#ExamCls for full documentation, but the questions
+% below give an idea of how to write questions [with parts] and have the points
+% tracked automatically on the cover page.
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+For the take home exam, you may use the textbook, any course materials provided on D2L, homeworks, and labs. You {\bf may not} discuss questions or work together with classmates. You are welcome to contact the instructor with any questions related to better explanation or understanding of the questions themselves. For complete (and partial credit) please show all work, whether that be by hand or printed R code.\\
+\\
+\begin{questions}
+\question Suppose you have been hired by CapitalBikeshare, a bike share company based in the Washington D.C. area, to construct a model of bike rentals. You have been provided a dataset\\ \url{http://www.math.montana.edu/ahoegh/teaching/stat532/data/biketrips2017Final.csv} that contains the number of daily bike rentals from seven stations.
+\begin{parts}
+	\part[4] 
+As a first model, write out a hierarchical normal model to estimate the mean number of bike rentals at each station and specify all necessary prior distributions.
+	\vfill
+		\part[4] Use an MCMC technique to fit this model and create a table or figure to display the credible intervals for the mean number of bikes rented at each station.
+		\vfill
+		\part[4] Now assume you are asked to describe your work to a set of executives from CapitalBikeshare. Script (write out) your presentation of the model and results you can include the equivalent of one slide for graphics or a table to accompany your speech.
+		\vfill
+		\part[4]
+		After hearing your description, one executive asks \emph{`Are your results different from a set of independent models that take average number of rentals at each station? and if so, why is your approach better?'}. Address this question.
+		\vfill
+		\part[4] Assume another executive at CapitalBikeshare asks why you didn't use a p-value in your analysis. Describe how you would answer that question.
+		\vfill
+			\newpage
+\end{parts}
+\newpage
+
+\question Now consider a dataset containing daily counts at the Lincoln Memorial.\\ \url{http://www.math.montana.edu/ahoegh/teaching/stat532/data/biketrips2017Lincoln.csv} Fit a Poisson regression model (generalized linear model) using day of the week as a covariate.
+\begin{parts}
+\part[4] Write out the model and necessary prior distributions for this model.
+\vfill
+\part[4] Detail \emph{and} implement an MCMC procedure to fit this model.
+\vfill
+\part[4] Summarize the posterior distribution with a table or visually with a plot and describe your results.
+\vfill
+\part[4] Create a figure for the predictive distribution for the mean count of bikes on Wednesdays.
+\vfill
+\part[4] Implement \emph{and} detail a procedure to verify that your prior and sampling model are reasonable in this case.
+\vfill
+\end{parts}
+\question Regardless of the result for the previous question, now assume you decide to fit a negative binomial generalized linear model using day of week as a covariate to model the count of rentals at the Lincoln Memorial.
+\begin{parts}
+\part[4]  Write out the model and include necessary priors.
+\vfill
+\part[4] Now sketch out how an MCMC approach could be implemented. For each parameter write out the full conditional distribution up to proportionality and describe how you would sample that parameter. Note you do not have to implement this approach.
+\vfill
+\end{parts}
+\question[6] Describe and justify your personal philosophy statistical philosophy. How has this changed (or not) since the start of the semester. (roughly half a page)
+\vfill
+\question[6] The ASA statement on p-values  highlights 6 principles about p-values\\
+\url{http://amstat.tandfonline.com/doi/pdf/10.1080/00031305.2016.1154108}:
+\begin{enumerate}
+	\item P-values can indicate how incompatible the data are with a specified statistical model.
+	\item P-values do not measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone.
+	\item Scientific conclusions and business or policy decisions should not be based only on whether a p-value passes a specific threshold.
+	\item Proper inference requires full reporting and transparency.
+	\item A p-value, or statistical significance, does not measure the size of an effect or the importance of a result.
+	\item By itself, a p-value does not provide a good measure of evidence regarding a model or hypothesis.
+\end{enumerate}
+Identify two of these principles and discuss how they are different from a Bayesian perspective. (roughly half a page)
+\vfill
+\vfill
+
+\end{questions}
+
+\end{document}
